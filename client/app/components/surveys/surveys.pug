@@ -1,0 +1,21 @@
+div
+  h1 Surveys
+
+  table.table.table-striped
+    thead
+      tr
+        th
+          | name
+        th
+          | data 2
+        th
+          | data 3
+        th
+          | data 4
+
+    tbody
+      tr(ng-repeat='survey in vm.surveys')
+        td(ng-bind='survey.name')
+        td(ng-bind='survey.name')
+        td(ng-bind='survey.name')
+        td(ng-bind='survey.name')

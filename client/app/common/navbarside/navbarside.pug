@@ -14,12 +14,19 @@ nav.navbar-default.navbar-side(role='navigation')
           i.fa.fa-dashboard
           | Dashboard
 
-      li(role='presentation', data-ng-class='{true: "active", false: ""}[navc.isActiveTab("/home")]')
-        a(ui-sref="home")
+      li(role='presentation', data-ng-class='{true: "active", false: ""}[vm.isActiveTab("/surveys")]')
+        a(ui-sref='surveys')
           i.fa.fa-desktop
           | Surveys
-      li(role='presentation', data-ng-class='{true: "active", false: ""}[navc.isActiveTab("/about")]')
-        a(ui-sref="about")
+          i.fa.arrow
+        ul.nav.nav-second-level(data-ng-class='{true: "", false: "collapse"}[vm.isActiveTab("/surveys")]')
+          li
+            a(ui-sref='addsurvey')
+              i.fa.fa-toggle-on
+              | Add
+
+      li(role='presentation', data-ng-class='{true: "active", false: ""}[vm.isActiveTab("/comparables")]')
+        a(ui-sref='comparables')
           i.fa.fa-flask
           | Comparables
 //-

@@ -1,0 +1,19 @@
+div
+  h1 Add Survey
+
+  form
+    .row
+      .col-sm-6
+        .form-group
+          label Select Candidate A
+          select.form-control(ng-model='vm.candidateA')
+            option(ng-repeat='candidate in vm.candidates', ng-bind='candidate.name', value='{{candidate.id}}')
+      .col-sm-6
+        .form-group
+          label Select Candidate B
+          select.form-control(ng-model='vm.candidateB')
+            option(ng-repeat='candidate in vm.candidates', ng-bind='candidate.name', value='{{candidate.id}}')
+
+  div(ng-show='vm.candidateA && vm.candidateB')
+    ul.list-group
+      li.list-group-item(ng-repeat='question in vm.questions', ng-bind='vm.constructQuestion(question);')
