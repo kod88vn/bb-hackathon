@@ -8,12 +8,9 @@ function api($http, $q) {
   };
   var apigClient = apigClientFactory.newClient(clientInfo);
 
-  function getComparables() {
-    var deferred = $q.defer();
-  }
-
   return {
-    getComparables: apigClient.comparablesGet({},{})
+    getComparables: apigClient.comparablesGet({},{}),
+    getCriteria: apigClient.criteriaGet({},{})
   }
 }
 
