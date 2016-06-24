@@ -9,17 +9,16 @@ angular.module( 'sample.login', [
     if(isAdmin) {
       // TODO: update roles and principals based upon your account settings.
       return {
-          "id_token": token,
-          "role":"arn:aws:iam::012345678901:role/auth0-api-role",
-          "principal": "arn:aws:iam::012345678901:saml-provider/auth0"
-
+          'id_token': token,
+          'role':'arn:aws:iam::012345678901:role/auth0-api-role',
+          'principal': 'arn:aws:iam::012345678901:saml-provider/auth0'
         };
       }
     else {
       return {
-          "id_token": token,
-          "role":"arn:aws:iam::012345678901:role/auth0-api-social-role",
-          "principal": "arn:aws:iam::012345678901:saml-provider/auth0"
+          'id_token': token,
+          'role':'arn:aws:iam::012345678901:role/auth0-api-social-role',
+          'principal': 'arn:aws:iam::012345678901:saml-provider/auth0'
         };
     }
   }
@@ -27,16 +26,16 @@ angular.module( 'sample.login', [
   $scope.login = function() {
      var params = {
         authParams: {
-          scope: 'openid email' 
+          scope: 'openid email'
         }
       };
 
     auth.signin(params, function(profile, token) {
-      
+
       store.set('profile', profile);
       store.set('token', token);
 
-      // set admin and get delegation token from identity token. 
+      // set admin and get delegation token from identity token.
       profile.isAdmin = !profile.identities[0].isSocial;
       var options = getOptionsForRole(profile.isAdmin, token);
 
@@ -45,18 +44,18 @@ angular.module( 'sample.login', [
         .then(
           function(delegation)  {
              store.set('awstoken', delegation.Credentials);  // add to local storage
-            $location.path("/");
-          }, 
+            $location.path(profile.isAdmin ? '/admin' : '/social');
+          },
         function(err) {
            console.log('failed to acquire delegation token', err);
       });
 
 
       // TODO: Step 3: Remove this redirect after you add the get token API.
-      //$location.path("/");
+      //$location.path('/');
 
     }, function(error) {
-      console.log("There was an error logging in", error);
+      console.log('There was an error logging in', error);
     });
   }
 });

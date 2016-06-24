@@ -3,8 +3,11 @@ angular.module( 'sample', [
   'ngRoute',
   'sample.home',
   'sample.login',
+  'bb.admin',
+  'bb.social',
   'angular-storage',
-  'angular-jwt'
+  'angular-jwt',
+  'bb.logout'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
@@ -13,6 +16,18 @@ angular.module( 'sample', [
       controller: 'HomeCtrl',
       templateUrl: 'home/home.html',
       pageTitle: 'Homepage',
+      requiresLogin: true
+    })
+    .when( '/admin', {
+      controller: 'AdminCtrl',
+      templateUrl: 'admin/admin.html',
+      pageTitle: 'Admin Page',
+      requiresLogin: true
+    })
+    .when( '/social', {
+      controller: 'SocialCtrl',
+      templateUrl: 'social/social.html',
+      pageTitle: 'Social Page',
       requiresLogin: true
     })
     .when( '/login', {
