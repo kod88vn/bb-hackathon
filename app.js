@@ -9,6 +9,8 @@ angular.module( 'sample', [
   'angular-jwt',
   'bb.logout',
   'bb.api'
+  'bb.criteria',
+  'bb.comparables'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
