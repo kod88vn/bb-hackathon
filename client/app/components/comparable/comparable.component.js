@@ -4,7 +4,9 @@ import './comparable.styl';
 
 let comparableComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    "comparables" : "="
+  },
   template,
   controller,
   controllerAs: 'vm'
