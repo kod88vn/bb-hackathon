@@ -9,7 +9,8 @@ function api($http, $q) {
   var apigClient = apigClientFactory.newClient(clientInfo);
 
   return {
-    getComparables: apigClient.comparablesGet({},{})
+    getComparables: apigClient.comparablesGet({},{}),
+    getCriteria: apigClient.criteriaGet({},{})
   }
 }
 
