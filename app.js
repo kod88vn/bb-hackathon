@@ -8,7 +8,8 @@ angular.module( 'sample', [
   'angular-storage',
   'angular-jwt',
   'bb.logout',
-  'bb.criteria'
+  'bb.criteria',
+  'bb.comparables'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
