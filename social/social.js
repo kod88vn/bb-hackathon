@@ -7,6 +7,7 @@ angular.module( 'bb.social', ['auth0'])
   api.getComparables.then(function(res) {
     console.log(res.data);
     vm.comparables = res.data;
+    $scope.$evalAsync();
   });
 
   
