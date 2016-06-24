@@ -1,5 +1,25 @@
-ul.nav.nav-tabs
-	li(role='presentation', data-ng-class='{true: "active", false: ""}[navc.isActiveTab("/home")]')
-		a(ui-sref="home") Home
-	li(role='presentation', data-ng-class='{true: "active", false: ""}[navc.isActiveTab("/about")]')
-		a(ui-sref="about") About
+//-
+	ul.nav.nav-tabs
+		li(role='presentation', data-ng-class='{true: "active", false: ""}[navc.isActiveTab("/home")]')
+			a(ui-sref="home") Home
+		li(role='presentation', data-ng-class='{true: "active", false: ""}[navc.isActiveTab("/about")]')
+			a(ui-sref="about") About
+
+nav.navbar.navbar-default.navbar-cls-top(role='navigation', style='margin-bottom: 0')
+	.navbar-header
+		button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-collapse')
+			span.sr-only Toggle navigation
+			span.icon-bar
+			span.icon-bar
+			span.icon-bar
+		a.navbar-brand(href='index.html') Tabs over Spaces
+
+	.header-right
+		a.btn.btn-info(href='message-task.html', title='New Message')
+			b 30
+			i.fa.fa-envelope-o.fa-2x
+		a.btn.btn-primary(href='message-task.html', title='New Task')
+			b 40
+			i.fa.fa-bars.fa-2x
+		a.btn.btn-danger(href='login.html', title='Logout')
+			i.fa.fa-exclamation-circle.fa-2x
