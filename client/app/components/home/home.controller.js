@@ -10,6 +10,7 @@ class HomeController {
       loop: true,
       postfix: ''
     };
+    this.criteria = [{"id":1,"name":"diplomacy"},{"id":2,"name":"foreign affairs"}]
   }
 }
 
