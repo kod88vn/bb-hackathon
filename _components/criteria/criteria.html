@@ -1,5 +1,17 @@
-<div ng-repeat="criterion in vm.criteria">
-    <div class="criteria-name">{{ criterion.name }}</div>
-    <div class="criteria-weight">{{ criterion.weight }}</div>
-    <button class="btn btn-danger">DELETE</button>
+<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+  <h3>Criteria</h3>
+  <div class="criteria">
+    <table class="table table table-striped">
+      <tr>
+        <th>#</th>
+        <th>Criterion</th>
+        <th>Weight</th>
+      </tr>
+      <tr data-ng-repeat="c in crc.criteria">
+        <td>{{::c.id}}</td>
+        <td>{{::c.description}}</td>
+        <td>{{c.weight}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
