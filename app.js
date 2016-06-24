@@ -10,7 +10,8 @@ angular.module( 'sample', [
   'bb.api',
   'bb.criteria',
   'bb.comparables',
-  'bb.opinions'
+  'bb.opinions',
+  'bb.survey'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
