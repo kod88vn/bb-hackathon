@@ -8,9 +8,10 @@ angular.module( 'sample', [
   'angular-storage',
   'angular-jwt',
   'bb.logout',
-  'bb.api'
+  'bb.api',
   'bb.criteria',
-  'bb.comparables'
+  'bb.comparables',
+  'bb.opinions'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
@@ -23,12 +24,14 @@ angular.module( 'sample', [
     })
     .when( '/admin', {
       controller: 'AdminCtrl',
+      controllerAs: 'adc',
       templateUrl: 'admin/admin.html',
       pageTitle: 'Admin Page',
       requiresLogin: true
     })
     .when( '/social', {
       controller: 'SocialCtrl',
+      controllerAs: 'soc',
       templateUrl: 'social/social.html',
       pageTitle: 'Social Page',
       requiresLogin: true
