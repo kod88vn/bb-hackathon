@@ -9,4 +9,9 @@ angular.module( 'bb.social', ['auth0'])
       }
     }
   };
+
+  api.getCriteria.then(function(res) {
+    vm.criteria = res.data;
+    $scope.$evalAsync();
+  });
 });
