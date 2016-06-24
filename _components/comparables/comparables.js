@@ -7,7 +7,7 @@ function bbcomparables() {
   return {
     restrict: 'E',
     scope: {
-      config: '='
+      model: '='
     },
     templateUrl: '/_components/comparables/comparables.html',
     controller: 'comparablesCtrl',
@@ -17,4 +17,6 @@ function bbcomparables() {
 
 function comparablesController( $scope, $http, $location, store, auth ) {
   var vm = this;
+  console.log(vm.comparables);
+  vm.comparables = $scope.model;
 }
