@@ -23,7 +23,7 @@ angular.module( 'sample.home', ['auth0'])
 
   function getPets() {
     //window.alert('getPets not implemented');
-    
+
     // this is unauthenticated
     var apigClient = apigClientFactory.newClient({
         region: 'eu-west-1' // The region where the API is deployed
@@ -38,10 +38,10 @@ angular.module( 'sample.home', ['auth0'])
         alert('pets get failed');
         showError(response);
     });
-    
+
   }
 
-  // --- Add for updating --- 
+  // --- Add for updating ---
   function getSecureApiClient() {
     var awstoken = store.get('awstoken');
 
@@ -55,7 +55,7 @@ angular.module( 'sample.home', ['auth0'])
 
   function putPets(updatedPets) {
       //window.alert('putPets not implemented');
-      
+
       // this is unauthenticated
       var body = {pets: updatedPets};
 
@@ -68,7 +68,7 @@ angular.module( 'sample.home', ['auth0'])
           alert('pets update failed');
           showError(response);
         });
-      
+
   }
 
   function buyPet(user, id) {
@@ -88,7 +88,7 @@ angular.module( 'sample.home', ['auth0'])
          showError(response);
      });
   }
-  
+
   $scope.addPets = function() {
     $scope.adding = true;
   }
@@ -102,8 +102,8 @@ angular.module( 'sample.home', ['auth0'])
 
      angular.forEach($scope.pets, function(p, i) {
        if(p.id === id) index = i;
-     });   
-    
+     });
+
      if(index >= 0) {
         $scope.pets.splice(index, 1);
         putPets($scope.pets);
@@ -122,7 +122,7 @@ angular.module( 'sample.home', ['auth0'])
     angular.forEach($scope.pets, function(p) {
       if(p.id > maxid) maxid = p.id;
     });
-    
+
     var newPet = {};
     newPet.id = maxid + 1;
     newPet.type = $scope.newpet.type;
@@ -140,7 +140,5 @@ angular.module( 'sample.home', ['auth0'])
     store.remove('token');
     $location.path('/login');
   }
-
-  getPets();
 
 });

@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://w4rvg0r67e.execute-api.eu-west-1.amazonaws.com/test';
+    var invokeUrl = 'https://zglytr7tia.execute-api.eu-west-1.amazonaws.com/test';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -83,93 +83,183 @@ apigClientFactory.newClient = function (config) {
     
     
     
-    apigClient.petsGet = function (params, body, additionalParams) {
+    apigClient.comparablesGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var petsGetRequest = {
+        var comparablesGetRequest = {
             verb: 'get'.toUpperCase(),
-            path: pathComponent + uritemplate('/pets').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/comparables').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(petsGetRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(comparablesGetRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.petsPost = function (params, body, additionalParams) {
+    apigClient.comparablesPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var petsPostRequest = {
+        var comparablesPostRequest = {
             verb: 'post'.toUpperCase(),
-            path: pathComponent + uritemplate('/pets').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/comparables').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(petsPostRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(comparablesPostRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.petsOptions = function (params, body, additionalParams) {
+    apigClient.comparablesOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var petsOptionsRequest = {
+        var comparablesOptionsRequest = {
             verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/pets').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/comparables').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(petsOptionsRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(comparablesOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.petsPurchasePost = function (params, body, additionalParams) {
+    apigClient.criteriaGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var petsPurchasePostRequest = {
+        var criteriaGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/criteria').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(criteriaGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.criteriaOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var criteriaOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/criteria').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(criteriaOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.surveysGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var surveysGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/surveys').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(surveysGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.surveysPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var surveysPostRequest = {
             verb: 'post'.toUpperCase(),
-            path: pathComponent + uritemplate('/pets/purchase').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/surveys').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(petsPurchasePostRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(surveysPostRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.petsPurchaseOptions = function (params, body, additionalParams) {
+    apigClient.surveysOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var petsPurchaseOptionsRequest = {
+        var surveysOptionsRequest = {
             verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/pets/purchase').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/surveys').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(petsPurchaseOptionsRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(surveysOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.testGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var testGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/test').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(testGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.testOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var testOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/test').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(testOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
