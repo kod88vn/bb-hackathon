@@ -1,10 +1,6 @@
-<div ng-repeat="comparable in cmp.comparables" class="pull-left">
-    <div ng-repeat="(key,value) in comparable">
-        <div ng-if="key != 'img'">
-        <div>{{ key }}</div>
-        <div>{{ value }}</div>
-        </div>
-        <img class="comparable-img" ng-if="key == 'img'" src="{{ value }}"/>
-    </div>
-    <div class="clearfix"></div>
+<div ng-repeat="comparable in cmp.comparables" class="pull-left comparable">
+    <img class="comparable-img" src="{{ comparable.img }}"/>
+    <h2>{{ comparable.name }}</h2>
+    <div>{{ comparable.Description }}</div>
 </div>
+<div class="clearfix"></div>
