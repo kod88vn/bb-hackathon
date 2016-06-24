@@ -7,7 +7,8 @@ function bbcriteria() {
   return {
     restrict: 'E',
     scope: {
-      config: '='
+      config: '=',
+      model: '='
     },
     templateUrl: '/_components/criteria/criteria.html',
     controller: 'criteriaCtrl',
@@ -15,6 +16,8 @@ function bbcriteria() {
   }
 }
 
-function criteriaController( $scope, $http, $location, store, auth ) {
+function criteriaController( $scope, $http, $location, store, auth, api ) {
   var vm = this;
+
+  vm.criteria = $scope.model;
 }
