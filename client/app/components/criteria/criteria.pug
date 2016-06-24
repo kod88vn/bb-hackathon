@@ -1,0 +1,5 @@
+div(class="col-lg-12")
+  div(ng-repeat="criterion in vm.criteria")
+    div(class="criterion-name col-lg-6") {{ criterion.name }}
+    div(class="criterion-weight col-lg-6") {{ criterion.weight }}
+    button(class="btn btn-danger" ng-click="vm.deleteCriterion(criterion.id)") Delete
