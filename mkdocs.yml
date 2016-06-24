@@ -1,0 +1,7 @@
+site_name: Tabs over spaces
+pages:
+- Solution: index.md
+- Architecture: arch.md
+- Deployment: deploy.md
+- About: about.md
+theme: bootstrap
