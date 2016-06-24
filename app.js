@@ -1,7 +1,6 @@
 angular.module( 'sample', [
   'auth0',
   'ngRoute',
-  'sample.home',
   'sample.login',
   'bb.admin',
   'bb.social',
@@ -17,10 +16,7 @@ angular.module( 'sample', [
   jwtInterceptorProvider) {
   $routeProvider
     .when( '/', {
-      controller: 'HomeCtrl',
-      templateUrl: 'home/home.html',
-      pageTitle: 'Homepage',
-      requiresLogin: true
+      redirectTo: '/login'
     })
     .when( '/admin', {
       controller: 'AdminCtrl',
@@ -40,6 +36,9 @@ angular.module( 'sample', [
       controller: 'LoginCtrl',
       templateUrl: 'login/login.html',
       pageTitle: 'Login'
+    })
+    .otherwise({
+      redirectTo: '/login'
     });
 
 
