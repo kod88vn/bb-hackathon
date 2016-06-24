@@ -6,7 +6,8 @@ angular.module( 'sample', [
   'bb.admin',
   'bb.social',
   'angular-storage',
-  'angular-jwt'
+  'angular-jwt',
+  'bb.logout'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
