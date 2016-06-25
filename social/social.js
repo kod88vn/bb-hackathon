@@ -9,13 +9,13 @@ angular.module( 'bb.social', ['auth0'])
     calculateScores();
   });
 
-  api.getComparables.then(function(res) {
+  api.getComparables().then(function(res) {
     vm.comparables = res.data;
     composeQuestions();
     $scope.$evalAsync();
   });
 
-  api.getCriteria.then(function(res) {
+  api.getCriteria().then(function(res) {
     vm.criteria = res.data;
     vm.weightQuestions = computeWeightSurveys(vm.criteria);
     vm.questions = vm.questions.concat(vm.weightQuestions);
