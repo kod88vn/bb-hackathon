@@ -38,6 +38,6 @@ function OpinionsController($scope, $rootScope) {
       $scope.config.onClick(opinion);
     }
 
-    $rootScope.$broadcast('tos:updateWeight')
+    $rootScope.$broadcast('tos:update')
   }
 }
