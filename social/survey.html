@@ -5,9 +5,9 @@
     padding-bottom: 20px;">Your Ultimate Survey</h1>
 
 <bb-comparables ng-if='soc.comparables' model='soc.comparables'/>
-<bb-criteria ng-if='soc.criteria' model='soc.criteria'/>
-<bb-survey ng-if='soc.weightQuestions' model='soc.weightQuestions'/>
+<bb-social-criteria ng-if='soc.criteria' model='soc.criteria'/>
 
+<bb-survey ng-if='soc.weightQuestions' model='soc.weightQuestions'/>
 <bb-survey ng-if='soc.candidateQuestions' model='soc.candidateQuestions'/>
 
 <button class="btn btn-primary btn-lg" ng-click="soc.submitSurvey();">Submit</button>
