@@ -6,6 +6,7 @@ angular.module( 'bb.logout', ['auth0'])
 function bbLogout() {
   return {
     restrict: 'E',
+    replace: true,
     scope: {
       config: '='
     },

@@ -11,7 +11,9 @@ angular.module( 'sample', [
   'bb.criteria',
   'bb.comparables',
   'bb.opinions',
-  'bb.survey'
+  'bb.survey',
+  'social-nav',
+  'admin-nav'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
@@ -30,6 +32,20 @@ angular.module( 'sample', [
       controller: 'SocialCtrl',
       controllerAs: 'soc',
       templateUrl: 'social/social.html',
+      pageTitle: 'Social Page',
+      requiresLogin: true
+    })
+    .when( '/social/surveys', {
+      controller: 'SocialCtrl',
+      controllerAs: 'soc',
+      templateUrl: 'social/surveys.html',
+      pageTitle: 'Social Page',
+      requiresLogin: true
+    })
+    .when( '/social/surveys/:id', {
+      controller: 'SocialCtrl',
+      controllerAs: 'soc',
+      templateUrl: 'social/survey.html',
       pageTitle: 'Social Page',
       requiresLogin: true
     })
@@ -81,4 +97,3 @@ angular.module( 'sample', [
 })
 
 ;
-
