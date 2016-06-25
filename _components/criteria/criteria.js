@@ -20,4 +20,14 @@ function criteriaController( $scope, $http, $location, store, auth, api ) {
   var vm = this;
 
   vm.criteria = $scope.model;
+
+  vm.labels = vm.criteria.map(function(crit) {
+    return crit.description;
+  });
+
+  vm.weights = [vm.criteria.map(function(crit) {
+    return crit.weight;
+  })]
+
+  vm.series = ['Score'];
 }

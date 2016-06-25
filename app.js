@@ -13,7 +13,8 @@ angular.module( 'sample', [
   'bb.opinions',
   'bb.survey',
   'social-nav',
-  'admin-nav'
+  'admin-nav',
+  'chart.js'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {

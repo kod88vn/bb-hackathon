@@ -1,6 +1,34 @@
-<div ng-repeat="comparable in cmp.comparables" class="pull-left comparable">
-    <img class="comparable-img" ng-src="{{ comparable.img }}"/>
-    <h2>{{ comparable.name }}</h2>
-    <div>{{ comparable.Description }}</div>
+<div class="row">
+  <div ng-repeat="comparable in cmp.comparables"
+    class="{{ cmp.getColClass(); }}">
+      <img class="comparable-img img-circle" ng-src="{{ comparable.img }}" style="margin: 0 auto; display: block;"/>
+      <h2 style="text-align: center;">{{ comparable.name }}</h2>
+      <div style="min-height: 120px;">{{ comparable.Description.substring(0, 200); }}
+        <a href="#" ng-click="cmp.view(comparable, $event);">more...</a>
+      </div>
+  </div>
 </div>
+
 <div class="clearfix"></div>
+
+<div ng-show="cmp.isModalOpen"
+  class="modal fade" tabindex="-1"
+  role="dialog" ng-class="{'in': cmp.isModalOpen}" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" ng-click="cmp.closeModal($event);">×</span>
+        </button>
+        <h4 class="modal-title">{{ cmp.viewComparable.name }}</h4>
+      </div>
+      <div class="modal-body">
+        <img class="comparable-img img-circle" ng-src="{{ cmp.viewComparable.img }}" style="margin: 0 auto; display: block;"/>
+        <p style="margin-top: 20px;" ng-bind="cmp.viewComparable.Description"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cmp.closeModal($event);">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
