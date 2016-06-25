@@ -1,0 +1,16 @@
+<div class="surveys">
+  <table class="table table-default table-striped">
+    <tr>
+      <th>#</th>
+      <th>Question</th>
+      <th>Opinion</th>
+    </tr>
+    <tr data-ng-repeat="q in svc.questions">
+      <td>{{$index}}</td>
+      <td>{{q.question}}</td>
+      <td>
+        <bb-opinions model='q'/>
+      </td>
+    </tr>
+  </table>
+</div>
