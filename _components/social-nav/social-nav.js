@@ -13,8 +13,8 @@ function socialNav() {
 }
 
 function SocialNavController( $scope, $http, $location, store, auth ) {
-  this.items = [
+  /*this.items = [
     {url: '/#/social', title: 'Home'},
     {url: '/#/social/surveys', title: 'Surveys'}
-  ];
+  ];*/
 }

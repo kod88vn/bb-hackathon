@@ -9,6 +9,7 @@ angular.module( 'sample', [
   'bb.logout',
   'bb.api',
   'bb.criteria',
+  'bb.social-criteria',
   'bb.comparables',
   'bb.opinions',
   'bb.survey',
