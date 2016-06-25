@@ -1,5 +1,5 @@
 <div ng-repeat="comparable in cmp.comparables" class="pull-left comparable">
-    <img class="comparable-img" src="{{ comparable.img }}"/>
+    <img class="comparable-img" ng-src="{{ comparable.img }}"/>
     <h2>{{ comparable.name }}</h2>
     <div>{{ comparable.Description }}</div>
 </div>
