@@ -4,3 +4,7 @@
   chart-data="crc.weights" chart-labels="crc.labels" chart-series="crc.series" height="15" width="100">
 </canvas>
 <br/><br/>
+<div ng-if="crc.config.isAdmin == true">
+    <button class="btn btn-success" ng-click="addCriterion()">Add Criterion</button>
+</div>
+  
