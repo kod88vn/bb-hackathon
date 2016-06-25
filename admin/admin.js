@@ -3,7 +3,7 @@ angular.module( 'bb.admin', ['auth0'])
   var vm = this;
   vm.criteria;
 
-  api.getCriteria().then(function(res) {
+  api.getCriteria.then(function(res) {
     vm.criteria = res.data;
     $scope.$evalAsync();
   });
