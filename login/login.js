@@ -44,7 +44,7 @@ angular.module( 'sample.login', [
         .then(
           function(delegation)  {
              store.set('awstoken', delegation.Credentials);  // add to local storage
-            $location.path(profile.isAdmin ? '/admin' : '/social');
+            $location.path(profile.isAdmin ? '/admin' : '/social/surveys/1235');
           },
         function(err) {
            console.log('failed to acquire delegation token', err);

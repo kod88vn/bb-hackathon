@@ -2,6 +2,7 @@ angular.module( 'bb.social', ['auth0'])
 .controller( 'SocialCtrl', function SocialController( $scope, $http, $location, store, auth, api ) {
   var vm = this;
   vm.opinionModel = {};
+  vm.questions = [];
 
   $scope.$on('tos:update', function() {
     calculateCriteriaWeights();
@@ -17,6 +18,7 @@ angular.module( 'bb.social', ['auth0'])
   api.getCriteria.then(function(res) {
     vm.criteria = res.data;
     vm.weightQuestions = computeWeightSurveys(vm.criteria);
+    vm.questions = vm.questions.concat(vm.weightQuestions);
     composeQuestions();
     $scope.$evalAsync();
   });
@@ -24,6 +26,7 @@ angular.module( 'bb.social', ['auth0'])
   function composeQuestions() {
     if(vm.comparables && vm.criteria) {
       vm.candidateQuestions = computeCandidateSurveys(vm.criteria, vm.comparables);
+      vm.questions = vm.questions.concat(vm.candidateQuestions);
     }
   }
 

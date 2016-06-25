@@ -8,7 +8,8 @@ function bbOpinions() {
     restrict: 'E',
     scope: {
       model: '=',
-      config: '='
+      config: '=',
+      click: '&'
     },
     templateUrl: '/_components/opinions/opinions.html',
     controller: 'OpinionsCtrl',
@@ -21,21 +22,26 @@ function OpinionsController($scope, $rootScope) {
   vm.onClick = onClick;
 
   vm.opinionOptions = [
-    {description: '1 - Strongly Disagree', opinionIndex: 1},
-    {description: '2 - Much Disagree', opinionIndex: 2},
-    {description: '3 - Disagree', opinionIndex: 3},
-    {description: '4 - Slightly Disagree', opinionIndex: 4},
-    {description: '5 - Neutral', opinionIndex: 5},
-    {description: '6 - Slightly Agree', opinionIndex: 6},
-    {description: '7 - Agree', opinionIndex: 7},
-    {description: '8 - Much Agree', opinionIndex: 8},
-    {description: '9 - Strongly Agree', opinionIndex: 9}
+    {description: 'Strongly Disagree', opinionIndex: 1},
+    {description: 'Much Disagree', opinionIndex: 2},
+    {description: 'Disagree', opinionIndex: 3},
+    {description: 'Slightly Disagree', opinionIndex: 4},
+    {description: 'Neutral', opinionIndex: 5},
+    {description: 'Slightly Agree', opinionIndex: 6},
+    {description: 'Agree', opinionIndex: 7},
+    {description: 'Much Agree', opinionIndex: 8},
+    {description: 'Strongly Agree', opinionIndex: 9}
   ];
 
   function onClick(opinion) {
     $scope.model.opinion = opinion;
+
     if($scope.config && $scope.config.onClick) {
       $scope.config.onClick(opinion);
+    }
+
+    if($scope.click) {
+      $scope.click();
     }
 
     $rootScope.$broadcast('tos:update')

@@ -1,3 +1,22 @@
+<div ng-hide="svc.finished" class="progress" style="height: 5px; margin-top: 10px;">
+  <div class="progress-bar" role="progressbar"
+    aria-valuenow="{{svc.loaded}}" aria-valuemin="0" aria-valuemax="100" style="width: {{svc.loaded}}%;">
+    <span class="sr-only">{{svc.loaded}}% Complete</span>
+  </div>
+</div>
+
+<div ng-repeat="q in svc.questions" ng-show="!svc.finished && q === svc.active">
+  <h3 class="text-center" ng-bind="q.question"></h3>
+  <bb-opinions model="q" click="svc.next();"></bb-opinions>
+</div>
+
+<h3 ng-show="svc.finished" class="text-center">Thanks for your time!</h3>
+
+<!--
+<button class="btn btn-primary" ng-click="svc.next();">next</button>
+-->
+
+<!--
 <div class="surveys">
   <table class="table table-default table-striped">
     <tr>
@@ -13,4 +32,4 @@
       </td>
     </tr>
   </table>
-</div>
+</div>-->
