@@ -6,7 +6,8 @@ angular.module( 'bb.social', ['auth0'])
 
   $scope.$on('tos:update', function() {
     calculateCriteriaWeights();
-    calculateScores();
+    var scores = calculateScores();
+    $scope.$broadcast('tos:getScores', vm.comparables)
   });
 
   api.getComparables().then(function(res) {
@@ -126,7 +127,6 @@ angular.module( 'bb.social', ['auth0'])
         candidateScoreMap[o.right.id].score += - index * o.criterion.weight;
       }
     });
-    console.log(vm.comparables.map(c => c.score));
   }
 
 });

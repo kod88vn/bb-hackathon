@@ -24,6 +24,15 @@ function surveyController( $scope, $http, $location, store, auth, api ) {
     vm.active = vm.questions[currentIndex];
   }, true);
 
+  $scope.$on('tos:getScores', function(event, comparables) {
+    vm.comparables = comparables;
+    var scores = comparables.map(c => c.score);
+    var total = scores.reduce((pre, cur) => {return pre + cur});
+    vm.comparables.forEach(c => {
+      c.ratio = (c.score / total * 100).toFixed(2);
+    });
+  });
+
   vm.next = function() {
     var nextIndex = currentIndex + 1;
 
