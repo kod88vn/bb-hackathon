@@ -17,6 +17,5 @@ function bbcomparables() {
 
 function comparablesController( $scope, $http, $location, store, auth ) {
   var vm = this;
-  console.log(vm.comparables);
   vm.comparables = $scope.model;
 }
