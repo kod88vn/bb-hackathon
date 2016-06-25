@@ -1,0 +1,51 @@
+<div class="row">
+  <div ng-repeat="comparable in cmp.comparables"
+    class="{{ cmp.getColClass(); }}">
+      <img class="comparable-img img-circle" ng-src="{{ comparable.img }}" style="margin: 0 auto; display: block;"/>
+      <h3>{{ comparable.name }}</h3>
+
+      <style>
+        .issue-item {
+          max-width: 300px;
+          white-space: nowrap;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      </style>
+
+      <ul class="list-group">
+        <li class="list-group-item"><span class="issue-item">{{comparable.issues[0]}}</span> <i class="glyphicon glyphicon-heart pull-right"></i></li>
+        <li class="list-group-item"><span class="issue-item">{{comparable.issues[1]}}</span> <i class="glyphicon glyphicon-user pull-right"></i></li>
+        <li class="list-group-item"><span class="issue-item">{{comparable.issues[2]}}</span> <i class="glyphicon glyphicon-cog pull-right"></i></li>
+        <li class="list-group-item"><span class="issue-item">{{comparable.issues[3]}}</span> <i class="glyphicon glyphicon-fire pull-right"></i></li>
+        <li class="list-group-item">
+          <a class="btn btn-link btn-block" href="#" ng-click="cmp.view(comparable, $event);">more...</a>
+        </li>
+      </ul>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div ng-show="cmp.isModalOpen"
+  class="modal fade" tabindex="-1"
+  role="dialog" ng-class="{'in': cmp.isModalOpen}" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" ng-click="cmp.closeModal($event);">×</span>
+        </button>
+        <h4 class="modal-title">{{ cmp.viewComparable.name }}</h4>
+      </div>
+      <div class="modal-body">
+        <img class="comparable-img img-circle" ng-src="{{ cmp.viewComparable.img }}" style="margin: 0 auto; display: block;"/>
+        <p style="margin-top: 20px;" ng-bind="cmp.viewComparable.Description"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cmp.closeModal($event);">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

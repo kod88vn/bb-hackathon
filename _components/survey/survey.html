@@ -1,0 +1,19 @@
+<div ng-hide="svc.finished" class="progress" style="height: 5px; margin-top: 10px;">
+  <div class="progress-bar" role="progressbar"
+    aria-valuenow="{{svc.loaded}}" aria-valuemin="0" aria-valuemax="100" style="width: {{svc.loaded}}%;">
+    <span class="sr-only">{{svc.loaded}}% Complete</span>
+  </div>
+</div>
+
+<div ng-repeat="q in svc.questions" ng-show="!svc.finished && q === svc.active">
+  <h3 class="text-center" ng-bind="q.question"></h3>
+  <bb-opinions model="q" click="svc.next();"></bb-opinions>
+</div>
+
+<div ng-if="svc.finished" class="text-center">
+  <h3>Your opinions projection</h3>
+  <div class='row' ng-repeat='s in svc.comparables'>
+    <div>{{s.name}}: {{s.ratio}}%</div>
+  </div>
+  <div class='clearfix'></div>
+</div>

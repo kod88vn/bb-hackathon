@@ -1,0 +1,21 @@
+<h3>Criteria</h3>
+
+<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+  <div class="criteria">
+    <table class="table table table-striped">
+      <tr>
+        <th>Criterion</th>
+        <th></th>
+      </tr>
+      <tr data-ng-repeat="c in crc.criteria">
+        <td>{{::c.description}}</td>
+        <td><button class="btn btn-danger" ng-click="crc.removeCriterion(c)">Remove</button></td>
+      </tr>
+      <tr>
+          <td><input ng-model='crc.newDescription'></td>
+          <td><button class="btn btn-success" ng-click="crc.addCriterion()">Add</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+

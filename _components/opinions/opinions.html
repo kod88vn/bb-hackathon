@@ -1,0 +1,20 @@
+<div style="margin: 40px 0;">
+  <button class="btn btn-default"
+    data-ng-repeat="o in opc.opinionOptions track by o.opinionIndex"
+    data-ng-click="opc.onClick(o)" ng-bind="o.description">
+  </button>
+</div>
+
+<!--
+<div class="dropdown">
+  <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+    <span>{{model.opinion && model.opinion.description || ' -- '}}</span>
+  </button>
+  <ul class="dropdown-menu width-auto opacity-09">
+    <li data-ng-repeat="o in opc.opinionOptions track by o.opinionIndex">
+      <a data-ng-click="opc.onClick(o)">{{::o.description}}
+      </a>
+    </li>
+  </ul>
+</div>
+-->

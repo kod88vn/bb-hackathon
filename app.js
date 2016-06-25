@@ -1,32 +1,53 @@
 angular.module( 'sample', [
   'auth0',
   'ngRoute',
-  'sample.home',
   'sample.login',
   'bb.admin',
   'bb.social',
   'angular-storage',
   'angular-jwt',
-  'bb.logout'
+  'bb.logout',
+  'bb.api',
+  'bb.criteria',
+  'bb.social-criteria',
+  'bb.comparables',
+  'bb.opinions',
+  'bb.survey',
+  'social-nav',
+  'admin-nav',
+  'chart.js'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
   $routeProvider
     .when( '/', {
-      controller: 'HomeCtrl',
-      templateUrl: 'home/home.html',
-      pageTitle: 'Homepage',
-      requiresLogin: true
+      redirectTo: '/login'
     })
     .when( '/admin', {
       controller: 'AdminCtrl',
+      controllerAs: 'adc',
       templateUrl: 'admin/admin.html',
       pageTitle: 'Admin Page',
       requiresLogin: true
     })
     .when( '/social', {
       controller: 'SocialCtrl',
+      controllerAs: 'soc',
       templateUrl: 'social/social.html',
+      pageTitle: 'Social Page',
+      requiresLogin: true
+    })
+    .when( '/social/surveys', {
+      controller: 'SocialCtrl',
+      controllerAs: 'soc',
+      templateUrl: 'social/surveys.html',
+      pageTitle: 'Social Page',
+      requiresLogin: true
+    })
+    .when( '/social/surveys/:id', {
+      controller: 'SocialCtrl',
+      controllerAs: 'soc',
+      templateUrl: 'social/survey.html',
       pageTitle: 'Social Page',
       requiresLogin: true
     })
@@ -34,6 +55,9 @@ angular.module( 'sample', [
       controller: 'LoginCtrl',
       templateUrl: 'login/login.html',
       pageTitle: 'Login'
+    })
+    .otherwise({
+      redirectTo: '/login'
     });
 
 
@@ -75,4 +99,3 @@ angular.module( 'sample', [
 })
 
 ;
-

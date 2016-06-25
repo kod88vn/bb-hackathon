@@ -83,6 +83,24 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.rootOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var rootOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(rootOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.comparablesGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -152,6 +170,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(criteriaGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.criteriaPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var criteriaPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/criteria').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(criteriaPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.criteriaDelete = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var criteriaDeleteRequest = {
+            verb: 'delete'.toUpperCase(),
+            path: pathComponent + uritemplate('/criteria').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(criteriaDeleteRequest, authType, additionalParams, config.apiKey);
     };
     
     
