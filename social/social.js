@@ -4,6 +4,10 @@ angular.module( 'bb.social', ['auth0'])
   vm.opinionModel = {};
   vm.comparables;
 
+  $scope.$on('tos:updateWeight', function() {
+    calculateCriteriaWeights(vm.criteria);
+  });
+
   api.getComparables.then(function(res) {
     vm.comparables = res.data;
     composeQuestions();
@@ -37,7 +41,9 @@ angular.module( 'bb.social', ['auth0'])
           '?'
         ].join(' ');
         questions.push({
-          question: q
+          question: q,
+          left: options[i],
+          right: options[j]
         });
       }
     }
@@ -63,13 +69,37 @@ angular.module( 'bb.social', ['auth0'])
           ].join(' ');
 
           surveys.push({
-            question: q
+            question: q,
+            left: options[i],
+            right: options[j]
           });
         }
       }
     });
 
     return surveys;
+  }
+
+  function calculateCriteriaWeights(criteria) {
+    let criteriaWeightMap = {};
+
+    criteria.forEach(c => {
+      c.weight = 0;
+      criteriaWeightMap[c.id] = c;
+    });
+
+    vm.weightQuestions.forEach(o => {
+      if(!o.opinion) {
+        return;
+      }
+
+      let index = o.opinion.opinionIndex - 5;
+      if(index > 0) {
+        criteriaWeightMap[o.left.id].weight += index;
+      } else {
+        criteriaWeightMap[o.right.id].weight += - index;
+      }
+    });
   }
 
 });

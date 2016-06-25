@@ -16,7 +16,7 @@ function bbOpinions() {
   }
 }
 
-function OpinionsController($scope) {
+function OpinionsController($scope, $rootScope) {
   var vm = this;
   vm.onClick = onClick;
 
@@ -37,5 +37,7 @@ function OpinionsController($scope) {
     if($scope.config && $scope.config.onClick) {
       $scope.config.onClick(opinion);
     }
+
+    $rootScope.$broadcast('tos:updateWeight')
   }
 }
