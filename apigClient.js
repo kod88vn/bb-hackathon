@@ -155,6 +155,24 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.criteriaPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var criteriaPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/criteria').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(criteriaPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.criteriaOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

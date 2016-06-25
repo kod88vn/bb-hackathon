@@ -1,10 +1,20 @@
 <h3>Criteria</h3>
 
-<canvas id="bar" class="chart chart-bar"
-  chart-data="crc.weights" chart-labels="crc.labels" chart-series="crc.series" height="15" width="100">
-</canvas>
-<br/><br/>
-<div ng-if="crc.config.isAdmin == true">
-    <button class="btn btn-success" ng-click="addCriterion()">Add Criterion</button>
+<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+  <div class="criteria">
+    <table class="table table table-striped">
+      <tr>
+        <th>Criterion</th>
+        <th></th>
+      </tr>
+      <tr data-ng-repeat="c in crc.criteria">
+        <td>{{::c.description}}</td>
+      </tr>
+      <tr>
+          <td><input ng-model='crc.newDescription'></td>
+          <td><button class="btn btn-success" ng-click="crc.addCriterion()">Add Criterion</button></td>
+      </tr>
+    </table>
+  </div>
 </div>
   

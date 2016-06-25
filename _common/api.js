@@ -10,7 +10,8 @@ function api($http, $q) {
 
   return {
     getComparables: apigClient.comparablesGet({},{}),
-    getCriteria: apigClient.criteriaGet({},{})
+    getCriteria: apigClient.criteriaGet({},{}),
+    postCriteria: apigClient.criteriaPost
   }
 }
 

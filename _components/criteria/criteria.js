@@ -21,6 +21,8 @@ function criteriaController( $scope, $http, $location, store, auth, api ) {
 
   vm.criteria = $scope.model;
   vm.config = $scope.config;
+  vm.newCriterionObject = {};
+  vm.newDescription;
 
   vm.labels = vm.criteria.map(function(crit) {
     return crit.description;
@@ -31,8 +33,18 @@ function criteriaController( $scope, $http, $location, store, auth, api ) {
   })]
   
   vm.addCriterion = function() {
-    api.addCriterion.then(function(){
-      
+    var criteria = [];
+    var newCriterion = {};
+    vm.newCriterionObject.group = 'default';
+    newCriterion.weight = 0;
+    newCriterion.id = 5;
+    newCriterion.description = vm.newDescription;
+    
+    criteria.push(newCriterion);
+    vm.newCriterionObject.criteria = criteria;
+    
+    api.postCriteria({},  vm.newCriterionObject).then(function(res){
+      console.log(res.data);
     });
   }
 
