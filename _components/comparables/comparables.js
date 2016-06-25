@@ -19,8 +19,6 @@ function comparablesController( $scope, $http, $location, store, auth ) {
   var vm = this;
   vm.comparables = $scope.model;
 
-  console.log(vm.comparables);
-
   vm.getColClass = function() {
     return 'col-sm-' + (12 / vm.comparables.length);
   };
