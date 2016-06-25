@@ -2,10 +2,10 @@ angular.module( 'bb.social', ['auth0'])
 .controller( 'SocialCtrl', function SocialController( $scope, $http, $location, store, auth, api ) {
   var vm = this;
   vm.opinionModel = {};
-  vm.comparables;
 
-  $scope.$on('tos:updateWeight', function() {
-    calculateCriteriaWeights(vm.criteria);
+  $scope.$on('tos:update', function() {
+    calculateCriteriaWeights();
+    calculateScores();
   });
 
   api.getComparables.then(function(res) {
@@ -71,7 +71,8 @@ angular.module( 'bb.social', ['auth0'])
           surveys.push({
             question: q,
             left: options[i],
-            right: options[j]
+            right: options[j],
+            criterion: c
           });
         }
       }
@@ -80,10 +81,10 @@ angular.module( 'bb.social', ['auth0'])
     return surveys;
   }
 
-  function calculateCriteriaWeights(criteria) {
+  function calculateCriteriaWeights() {
     let criteriaWeightMap = {};
 
-    criteria.forEach(c => {
+    vm.criteria.forEach(c => {
       c.weight = 0;
       criteriaWeightMap[c.id] = c;
     });
@@ -100,6 +101,29 @@ angular.module( 'bb.social', ['auth0'])
         criteriaWeightMap[o.right.id].weight += - index;
       }
     });
+  }
+
+  function calculateScores() {
+    let candidateScoreMap = {};
+
+    vm.comparables.forEach(c => {
+      c.score = 0;
+      candidateScoreMap[c.id] = c;
+    });
+
+    vm.candidateQuestions.forEach(o => {
+      if(!o.opinion) {
+        return;
+      }
+
+      let index = o.opinion.opinionIndex - 5;
+      if(index > 0) {
+        candidateScoreMap[o.left.id].score += index * o.criterion.weight;
+      } else {
+        candidateScoreMap[o.right.id].score += - index * o.criterion.weight;
+      }
+    });
+    console.log(vm.comparables.map(c => c.score));
   }
 
 });
