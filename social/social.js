@@ -29,7 +29,13 @@ angular.module( 'bb.social', ['auth0'])
 
     for(let i = 0; i < options.length - 1; i++) {
       for(let j = i +1; j < options.length; j++) {
-        var q = ['Is', options[i].description, 'more important than', options[j].description, '?'].join(' ');
+        var q = [
+          'Is',
+          options[i].description,
+          'more important to you than',
+          options[j].description,
+          '?'
+        ].join(' ');
         questions.push({
           question: q
         });
@@ -47,9 +53,9 @@ angular.module( 'bb.social', ['auth0'])
       for(let i = 0; i < options.length - 1; i++) {
         for(let j = i +1; j < options.length; j++) {
           let q = [
-            'Is',
+            'Does',
             options[i].name,
-            'more important than',
+            'align with your view more than',
             options[j].name,
             'on',
             c.description,
